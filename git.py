@@ -1,7 +1,26 @@
-from car import Car
+class Animal:
+    def __init__(self, name):
+        self.name = name
+        self.is_alive = True
 
-car1 = Car('BMW', 2026, 'Matte Black', True)
-car2 = Car('Mustang', 2025, 'Gray', False)
-car3 = Car('V-Wagon', 2026, 'BLACK', False)
+    def eat(self):
+        return f'The {self.name} is eating people!!!'
 
-car1.stop()
+    def sleep(self):
+        return f'Hold on, I think the {self.name} is sleeping now.'
+
+
+class Lion(Animal):
+    pass
+
+
+class Tiger(Animal):
+    pass
+
+
+class Cheetah(Animal):
+    pass
+
+
+lion = Lion('Kitty')
+print(lion.name)
