@@ -24,3 +24,5 @@ class Cheetah(Animal):
 
 lion = Lion('Kitty')
 print(lion.name)
+cheetah = Cheetah('chirper')
+print(cheetah.name)
