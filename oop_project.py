@@ -4,3 +4,5 @@ Sara = BankAccount(2000, "Sara")
 
 Dave.deposit(400)
 Dave.withdraw(1000)
+
+Dave.transfer(100, Sara)
