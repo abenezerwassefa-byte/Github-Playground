@@ -13,7 +13,7 @@ class BankAccount:
         print(f"Account {self.name} has ${self.balance:.2f}")
 
     def deposit(self, amount):
-        self.balance = self.balance + amount
+        self.balance = self.balance + amount #this is not a statement; it's a reassignment
         self.amount = amount
         print(f"Deposit complete. ${self.amount} deposited.")
         self.getBalance()
