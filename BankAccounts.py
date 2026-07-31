@@ -68,3 +68,4 @@ class Savings(Interest):
             self.getBalance()
         except BalanceException as error:
             print(f"\n Withdraw Interrupted: {error}")
+# Read this documentation and understand it
