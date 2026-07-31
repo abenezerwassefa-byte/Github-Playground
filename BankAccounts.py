@@ -1,5 +1,5 @@
 class BalanceException(Exception):
-    pass
+    pass #this subclass is creating a custom error.
 
 
 class BankAccount:
