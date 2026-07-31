@@ -1,5 +1,5 @@
 class BalanceException(Exception):
-    pass #this subclass is creating a custom error.
+    pass  # this subclass is creating a custom error.
 
 
 class BankAccount:
@@ -13,7 +13,8 @@ class BankAccount:
         print(f"Account {self.name} has ${self.balance:.2f}")
 
     def deposit(self, amount):
-        self.balance = self.balance + amount #this is not a statement; it's a reassignment
+        # this is not a statement; it's a reassignment
+        self.balance = self.balance + amount
         self.amount = amount
         print(f"Deposit complete. ${self.amount} deposited.")
         self.getBalance()
@@ -68,4 +69,4 @@ class Savings(Interest):
             self.getBalance()
         except BalanceException as error:
             print(f"\n Withdraw Interrupted: {error}")
-# Read this documentation and understand it
+# Read this documentation and understand

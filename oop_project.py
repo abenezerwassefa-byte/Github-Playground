@@ -6,4 +6,4 @@ Jim = Interest(50000, "Jimmy")
 Jim.getBalance()
 Jim.deposit(100)
 Jim.transfer(200, Dave)
-# =============Study this!! Don't slack off!!
+# ============Study this!! Don't slack off!!
