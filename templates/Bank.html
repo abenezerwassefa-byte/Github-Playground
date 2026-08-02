@@ -1,0 +1,115 @@
+{% extends 'base.html' %} <!--extends = inherits. Look more into template inhertance-->
+
+{% block head %}
+ 
+{% endblock %}
+
+{% block body %}
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <div>
+            <h1>FocusFlow</h1>
+            <p>Stay productive. One task at a time.</p>
+        </div>
+
+        <button class="add-btn">+</button>
+
+    </div>
+
+    <form class="add-task">
+
+        <input
+            type="text"
+            placeholder="What needs to be done today?"
+            required>
+
+        <button type="submit">
+            Add Task
+        </button>
+
+    </form>
+
+    <div class="task-list">
+
+        <div class="task completed">
+
+            <div class="left">
+
+                <input type="checkbox" checked>
+
+                <span>Finish Flask project</span>
+
+            </div>
+
+            <button class="delete">×</button>
+
+        </div>
+
+        <div class="task">
+
+            <div class="left">
+
+                <input type="checkbox">
+
+                <span>Study SQLAlchemy</span>
+
+            </div>
+
+            <button class="delete">×</button>
+
+        </div>
+
+        <div class="task">
+
+            <div class="left">
+
+                <input type="checkbox">
+
+                <span>Workout</span>
+
+            </div>
+
+            <button class="delete">×</button>
+
+        </div>
+
+        <div class="task">
+
+            <div class="left">
+
+                <input type="checkbox">
+
+                <span>Read Atomic Habits</span>
+
+            </div>
+
+            <button class="delete">×</button>
+
+        </div>
+
+        <div class="task">
+
+            <div class="left">
+
+                <input type="checkbox">
+
+                <span>Prepare tomorrow's schedule</span>
+
+            </div>
+
+            <button class="delete">×</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+{% endblock%}

@@ -1,3 +1,52 @@
+# imports
+from flask import Flask, render_template, redirect, request
+from flask_scss import Scss
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime, timezone
+app = Flask(__name__)
+Scss(app)
+
+# learn what sqlalchemy is!!
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
+db = SQLAlchemy(app)
+
+# Data class ~ Row of data
+# One model = one row of data
+
+
+class MyTask(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.String(100), nullable=False)
+    complete = db.Column(db.Integer)
+    created = db.Column(db.DateTime, default=datetime.now(timezone.utc))
+    # DateTime is an object here
+
+    def __repr__(self):
+        return f"Task{self.id}"
+
+# Routes to Webpages
+
+
+# POST MEANS SEND DATA AND GET MEANS RECIEVE DATA
+@app.route("/", methods=["POST", "GET"])
+def index():
+    # Add tasks
+
+    # See all added tasks
+
+    return render_template("Bank.html")
+
+
+# Runner and Debugger
+if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()
+
+    app.run(debug=True)
+
+# above is a flask tutorial attempt^^^^
+
+
 class BalanceException(Exception):
     pass  # this subclass is creating a custom error.
 
