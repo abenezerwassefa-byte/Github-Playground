@@ -32,7 +32,8 @@ class MyTask(db.Model):
 def index():
     # Add tasks
     if request.method == "POST":
-        current_task = request.form
+        # FIND OUT WHAT THIS LINE MEANS.
+        current_task = request.form["content"]
         # UNDERSTAND THIS SECTION WELL.
         new_task = MyTask(content=current_task)
         try:  # IF YOU HAVE A TRY BLOCK, YOU SHOULD HAVE AN EXCEPTION JUST IN CASE YOU NEED TO HANDLE AND ERROR.
@@ -40,13 +41,16 @@ def index():
             db.session.commit()
             return redirect("/")
         except Exception as e:
-            print("Error:{e}")
+            print(f"Error:{e}")
             # WHAT IS THE USE OF THIS LINE IF WE HAVE A PRINT STATEMENT THAT DOES THE SAME THING?
             return f"ERROR:{e}"
     # See all added tasks
     else:
-        tasks = MyTask.query > order
-    return render_template("Todo.html")
+        # ORDER_BY ARRANGES THE TASKS HOW YOU WANT IT
+        tasks = MyTask.query.order_by(MyTask.created).all()
+        # FIND OUT WHAT ALL() MEANS HERE
+        # tasks=tasks allows you to see your added tasks
+        return render_template('Todo.html', tasks=tasks)
 
 
 # Runner and Debugger

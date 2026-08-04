@@ -8,21 +8,32 @@
 
 <div class="content">
     <h1>TaskFlow</h1>
+
+
+    {% if tasks | length < 1%} <!-- WHEN YOU CODE IN JINJA, YOU ALWAYS HAVE TO CLOSE YOUR CONDITIONS JUST LIKE IN PYTHON -->
+    <h3>There are no tasks... Create one here.</h3>
+    {% else %}
     <table>
         <tr>
             <th>Task</th>
             <th>Added</th>
             <th>Actions</th>
         </tr>
+        {% for task in tasks %} <!--THIS IS A FOR LOOP IN JINJA-->
         <tr>
-            <td>Content</td>
-            <td>Data</td>
-            <td>More</td>
+            <td>{{task.content}}</td>
+            <td>{{ task.created.strftime("%Y-%m-%d") }}</td>
+            <td> 
+                <a href="/delete/{{task.id}}">Delete</a>
+                <a href="/update/{{task.id}}">Edit</a>
+            </td>
         </tr>
+        {% endfor %} <!--THIS IS HOW WE END A FOR LOOP IN JINJA-->
     </table>
-    <form action="">
+    {% endif %}
+    <form action="/" method="POST">
         <input type="text" name="content" id="content" />
-        <input type="submit" name="content" id="btn_add" />
+        <input type="submit" value="submit" id="btn_add" />
     </form>
 </div>
 
